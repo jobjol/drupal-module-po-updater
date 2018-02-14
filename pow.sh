@@ -10,7 +10,7 @@ then
 fi
 
 # If translations directory does not exist, create it.
-if [ "! -d translations" ]; 
+if [ -d "translations" ]; 
 then
     mkdir $DIR/translations
 fi

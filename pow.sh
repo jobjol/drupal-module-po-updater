@@ -17,17 +17,17 @@ then
 fi
 
 # Check if a .module file exists in pwd
-if [ -e *.module ]; 
+if [ -e *info.yml ];
 then 
     FILE="translations/$LANGCODE.po"
     cd $DIR 
     if [ -f $FILE ]; 
     then
-	find . -type f -name "*.*" | xargs xgettext -o $FILE --from-code utf-8 --omit-header --directory $DIR --keyword=t --language=PHP -j &&
-	echo `date`" - Updated existing language file moduleroot/translations/$LANGCODE.po"  
+      find . -type f -name "*.*" | xargs xgettext -o $FILE --from-code utf-8 --omit-header --directory $DIR --keyword=t --language=PHP -j &&
+      echo `date`" - Updated existing language file moduleroot/translations/$LANGCODE.po"
     else
-	find . -type f -name "*.*" | xargs xgettext -o $FILE --from-code utf-8 --directory $DIR --keyword=t --language=PHP &&
-	echo `date`" - New language file created: $FILE"
+      find . -type f -name "*.*" | xargs xgettext -o $FILE --from-code utf-8 --directory $DIR --keyword=t --language=PHP &&
+      echo `date`" - New language file created: $FILE"
     fi
 else
     echo `date`" - Call the script inside the module root folder. Exiting now."

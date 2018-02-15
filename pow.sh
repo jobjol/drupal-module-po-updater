@@ -23,10 +23,10 @@ then
     cd $DIR 
     if [ -f $FILE ]; 
     then
-      find . -type f -name "*.*" | xargs xgettext -o $FILE --from-code utf-8 --omit-header --directory $DIR --keyword=t --language=PHP -j &&
+      find . -not \( -path ./translations -prune \) -type f -name "*.*" | xargs xgettext -o $FILE --from-code utf-8 --omit-header --directory $DIR --keyword=t -j &&
       echo `date`" - Updated existing language file moduleroot/translations/$LANGCODE.po"
     else
-      find . -type f -name "*.*" | xargs xgettext -o $FILE --from-code utf-8 --directory $DIR --keyword=t --language=PHP &&
+      find . -not \( -path ./translations -prune \) -type f -name "*.*" | xargs xgettext -o $FILE --from-code utf-8 --directory $DIR --keyword=t &&
       echo `date`" - New language file created: $FILE"
     fi
 else

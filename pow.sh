@@ -16,7 +16,7 @@ then
     mkdir $DIR/translations
 fi
 
-# Check if a .module file exists in pwd
+# Check if a .info.yml module file exists in pwd
 if [ -e *info.yml ];
 then 
     FILE="translations/$LANGCODE.po"
